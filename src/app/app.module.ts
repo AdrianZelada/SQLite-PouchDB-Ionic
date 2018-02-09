@@ -3,18 +3,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 
-import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
+import { File} from '@ionic-native/file';
+
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+//services
+import { UsersDbServices} from '../services/users.service';
+import { CitiesDbServices } from '../services/cities.service';
 
 @NgModule({
   declarations: [
-    MyApp,
-    AboutPage,
+    MyApp,    
     ContactPage,
     HomePage,
     TabsPage
@@ -25,8 +28,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    AboutPage,
+    MyApp,    
     ContactPage,
     HomePage,
     TabsPage
@@ -34,6 +36,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    File,
+    UsersDbServices,
+    CitiesDbServices,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
